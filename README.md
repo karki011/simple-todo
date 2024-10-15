@@ -41,7 +41,7 @@ A simple React-based Todo app that allows users to manage their tasks with featu
 
 1. **Clone the Repository**
    ```bash
-   git clone 
+   git clone https://github.com/karki011/simple-todo.git
    ```
 
 2. **Install Dependencies**
