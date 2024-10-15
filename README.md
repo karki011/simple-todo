@@ -46,7 +46,7 @@ A simple React-based Todo app that allows users to manage their tasks with featu
 
 2. **Install Dependencies**
    ```bash
-   cd todo-app
+   cd simple-todo
    yarn
    ```
 
