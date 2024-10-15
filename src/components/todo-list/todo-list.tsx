@@ -46,12 +46,12 @@ export const TodoList: React.FC = () => {
   const compareDueDate = (todo: Todo) =>
     todo.dueDate ? dayjs(todo.dueDate).valueOf() : Infinity
 
-  const compareCompleted = (todo: Todo) => todo.isComplete
+  const compareCompleted = (todo: Todo) => (todo.isComplete ? 1 : -1)
 
   const sortedTodos = sortWith<Todo>([
     descend(isOverdue),
-    ascend(compareDueDate),
     ascend(compareCompleted),
+    ascend(compareDueDate),
   ], todos || [])
 
   const filteredTodos = sortedTodos?.filter((todo: Todo) => {
