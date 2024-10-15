@@ -62,13 +62,6 @@ A simple React-based Todo app that allows users to manage their tasks with featu
    ```bash
    yarn run dev
    ```
-
-### ✨ Future Enhancements
-
-- **🚀 Add Task Editing**: Allow users to edit the description of their todos.
-- **📆 Add Due Date Filtering**: Provide the ability to filter tasks by upcoming due dates.
-- **🔔 Add Notifications**: Notify users when tasks are overdue.
-
 ---
 
 ### 🎉 Thank You!
