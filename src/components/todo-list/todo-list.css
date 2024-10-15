@@ -1,0 +1,28 @@
+.todo-list-container {
+  display: grid;
+  place-content: center;
+  margin-top: 2rem;
+}
+
+.tabs-and-refresh {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 70vw;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.refresh-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.refresh-button:hover {
+  background-color: #218838;
+}

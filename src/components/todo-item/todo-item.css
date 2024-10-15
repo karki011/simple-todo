@@ -1,0 +1,55 @@
+.todo-item-container {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.todo-item {
+  font-weight: 500;
+  background-color: var(--todo-background);
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  width: 70vw;
+  overflow: scroll;
+  overflow-wrap: normal;
+}
+
+.todo-item.completed {
+  background-color: var(--completed-background);
+}
+
+.todo-item.completed .todo-description {
+  text-decoration: line-through;
+  color: var(--text-color);
+}
+
+.todo-item.overdue {
+  background-color: var(--overdue-background);
+}
+
+.todo-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.todo-description {
+  margin-left: 10px;
+  color: var(--text-color);
+  flex-grow: 1;
+}
+
+.todo-date {
+  margin-left: 20px;
+  color: var(--text-color);
+  white-space: nowrap;
+  border: 1px solid var(--border-color);
+  padding: 4px;
+}
+.todo-status {
+  width: 30px;
+}
