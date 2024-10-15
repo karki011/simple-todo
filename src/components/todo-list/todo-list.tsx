@@ -4,6 +4,15 @@ import { useGetTodosQuery, useUpdateTodoMutation } from '../../api'
 import './todo-list.css'
 import Loading from '../loading/loading'
 import { Tabs } from '../tabs-filter'
+import dayjs from 'dayjs'
+import { sortWith, ascend, descend } from 'ramda'
+
+interface Todo {
+  id: string
+  description: string
+  isComplete: boolean
+  dueDate: string | null
+}
 
 export const TodoList: React.FC = () => {
   const { data: todos, isLoading, isSuccess, refetch } = useGetTodosQuery()
@@ -24,17 +33,33 @@ export const TodoList: React.FC = () => {
     }
   }
 
-  const filteredTodos = todos?.filter((todo) => {
+  const handleRefresh = () => {
+    refetch()
+    setActiveTab('All')
+  }
+
+  const now = dayjs()
+
+  const isOverdue = (todo: Todo): boolean =>
+    !todo.isComplete && !!todo.dueDate && dayjs(todo.dueDate).isBefore(now)
+
+  const compareDueDate = (todo: Todo) =>
+    todo.dueDate ? dayjs(todo.dueDate).valueOf() : Infinity
+
+  const compareCompleted = (todo: Todo) => todo.isComplete
+
+  const sortedTodos = sortWith<Todo>([
+    descend(isOverdue),
+    ascend(compareDueDate),
+    ascend(compareCompleted),
+  ], todos || [])
+
+  const filteredTodos = sortedTodos?.filter((todo: Todo) => {
     if (activeTab === 'Completed') {
       return todo.isComplete
     }
     return true
   })
-
-  const handleRefresh = () => {
-    refetch()
-    setActiveTab('All')
-  }
 
   if (isLoading) {
     return <Loading text="Loading todos" />
