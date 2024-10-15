@@ -8,7 +8,7 @@ const Nav: FC = () => {
   return (
     <nav className="nav">
       <div className="nav-brand">
-        <h1>Subash Karki Frontend Coding Challenge</h1>
+        <h1>Subash Karki -- SIMPLE TODO</h1>
       </div>
       <div className="nav-links">
         <button className="theme-toggle" onClick={toggleTheme}>
